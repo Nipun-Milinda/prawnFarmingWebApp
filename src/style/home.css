@@ -1,0 +1,28 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.lowerHeader{
+    height: 5em;
+}
+
+.welcome{
+    margin-left: 2em;
+}
+
+.body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #E5E5E5;
+    height: 78vh;
+}
+
+.body a {
+    text-decoration: none;
+    color: #14213D;
+    border: 3px solid #FCA311;
+    padding: 2em 2em;
+    border-radius: 2em;
+}
