@@ -9,6 +9,9 @@ const Ph = () => {
   const [currentTime, setCurrentTime] = useState('');
   const [currentDate, setCurrentDate] = useState('');
   const [phValue, setphValue] = useState(0);
+  const [biochipStatus, setBiochipValue] = useState();
+  const [sugarStatus, setSugarValue] = useState();
+  const [slakelimeStatus, setSlakelimeValue] = useState();
   const [showTreatmentContent, setShowTreatmentContent] = useState(false);
 
   useEffect(() => {
