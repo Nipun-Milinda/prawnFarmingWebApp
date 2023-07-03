@@ -9,7 +9,6 @@ const Ph = () => {
   const [currentTime, setCurrentTime] = useState('');
   const [currentDate, setCurrentDate] = useState('');
   const [phValue, setphValue] = useState(0);
-  const [biochipStatus, setBiochipValue] = useState();
   const [sugarStatus, setSugarValue] = useState();
   const [slakelimeStatus, setSlakelimeValue] = useState();
   const [showTreatmentContent, setShowTreatmentContent] = useState(false);
@@ -41,21 +40,41 @@ const Ph = () => {
 
     const handleCheck = () => {
       axios.get("http://192.168.1.181/checkPH")
-    .then((response) => setphValue(response.data))
-    .catch((error) => console.log(error));
+      .then((response) => setphValue(response.data))
+      .catch((error) => console.log(error));
     setShowTreatmentContent(true);
   };
 
+    const handleSugarStatus = () => {
+      axios.get("http://192.168.1.181/sugarStatus")
+      .then((response) => setSugarValue(response.data))
+      .catch((error) => console.log(error));
+    };
+
+    const handleSlakelimeStatus = () => {
+      axios.get("http://192.168.1.181/slakelimeStatus")
+      .then((response) => setSlakelimeValue(response.data))
+      .catch((error) => console.log(error));
+    };
+
     const lowRangePhHandle = () => {
+      if(slakelimeStatus == '1'){
+        alert("Enter SlakeLime to Canister!!!");
+      }else{
         axios.get("http://192.168.1.181/startPHTreatLow")
-    .then((response) => console.log(response.data))
-    .catch((error) => console.log(error));
+        .then((response) => console.log(response.data))
+        .catch((error) => console.log(error));
+      }
     };
 
     const highRangePhHandle = () => {
+      if(sugarStatus == '1'){
+        alert("Enter Sugar to Canister!!!");
+      }else{
         axios.get("http://192.168.1.181/startPHTreatHigh")
-    .then((response) => console.log(response.data))
-    .catch((error) => console.log(error));
+        .then((response) => console.log(response.data))
+        .catch((error) => console.log(error));
+      }
     };
 
   const getTreatmentContent = () => {

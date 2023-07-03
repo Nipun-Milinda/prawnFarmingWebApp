@@ -8,6 +8,7 @@ const Nh3 = () => {
   const [currentDay, setCurrentDay] = useState('');
   const [currentTime, setCurrentTime] = useState('');
   const [currentDate, setCurrentDate] = useState('');
+  const [biochipStatus, setBiochipValue] = useState();
   const [showCheckContent, setShowCheckContent] = useState(false);
   const [showLowSolContent, setShowLowSolContent] = useState(false);
 
@@ -51,6 +52,12 @@ const Nh3 = () => {
     axios.get("http://192.168.1.181/startNH3Treat")
     .then((response) => console.log(response.data))
     .catch((error) => console.log(error));
+  };
+
+  const handleBiochipStatus = () => {
+      axios.get("http://192.168.1.181/bioChipStatus")
+      .then((response) => setBiochipValue(response.data))
+      .catch((error) => console.log(error));
   };
 
   return (
