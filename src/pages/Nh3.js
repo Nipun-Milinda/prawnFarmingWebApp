@@ -49,9 +49,15 @@ const Nh3 = () => {
   };
 
   const handleNh3Treatment = () => {
-    axios.get("http://192.168.1.181/startNH3Treat")
-    .then((response) => console.log(response.data))
-    .catch((error) => console.log(error));
+    handleBiochipStatus();
+    console.log(biochipStatus);
+    if(biochipStatus === '0'){
+      alert("Enter Biochip to Canister!!!");
+    }else{
+      axios.get("http://192.168.1.181/startNH3Treat")
+      .then((response) => console.log(response.data))
+      .catch((error) => console.log(error));
+    }
   };
 
   const handleBiochipStatus = () => {
