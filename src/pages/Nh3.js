@@ -46,10 +46,11 @@ const Nh3 = () => {
       setShowLowSolContent(parseFloat(getVal.value) > 1);
       setShowCheckContent(true);
     }
+    handleBiochipStatus();
   };
 
   const handleNh3Treatment = () => {
-    handleBiochipStatus();
+    
     console.log(biochipStatus);
     if(biochipStatus === '0'){
       alert("Enter Biochip to Canister!!!");

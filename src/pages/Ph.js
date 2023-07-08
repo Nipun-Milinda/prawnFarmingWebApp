@@ -43,6 +43,13 @@ const Ph = () => {
       .then((response) => setphValue(response.data))
       .catch((error) => console.log(error));
     setShowTreatmentContent(true);
+    if(phValue>8.5){
+      handleSugarStatus();
+    }else if(phValue<7.5){
+      handleSlakelimeStatus();
+    }
+
+
   };
 
     const handleSugarStatus = () => {
