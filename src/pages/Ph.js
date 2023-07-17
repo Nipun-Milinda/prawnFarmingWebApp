@@ -44,21 +44,21 @@ const Ph = () => {
       .catch((error) => console.log(error));
     setShowTreatmentContent(true);
     if(phValue>8.5){
-      handleSugarStatus();
+      requestHandleSugarStatus();
     }else if(phValue<7.5){
-      handleSlakelimeStatus();
+      requestHandleSlakelimeStatus();
     }
 
 
   };
 
-    const handleSugarStatus = () => {
+    const requestHandleSugarStatus = () => {
       axios.get("http://192.168.1.181/sugarStatus")
       .then((response) => setSugarValue(response.data))
       .catch((error) => console.log(error));
     };
 
-    const handleSlakelimeStatus = () => {
+    const requestHandleSlakelimeStatus = () => {
       axios.get("http://192.168.1.181/slakelimeStatus")
       .then((response) => setSlakelimeValue(response.data))
       .catch((error) => console.log(error));
