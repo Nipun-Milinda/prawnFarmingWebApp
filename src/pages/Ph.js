@@ -43,11 +43,11 @@ const Ph = () => {
       .then((response) => setphValue(response.data))
       .catch((error) => console.log(error));
     setShowTreatmentContent(true);
-    if(phValue>8.5){
-      requestHandleSugarStatus();
-    }else if(phValue<7.5){
-      requestHandleSlakelimeStatus();
-    }
+    // if(phValue>8.5){
+    //   requestHandleSugarStatus();
+    // }else if(phValue<7.5){
+    //   requestHandleSlakelimeStatus();
+    // }
 
 
   };
@@ -65,13 +65,14 @@ const Ph = () => {
     };
 
     const lowRangePhHandle = () => {
-      if(slakelimeStatus == '1'){
-        alert("Enter SlakeLime to Canister!!!");
-      }else{
-        axios.get("http://192.168.1.181/startPHTreatLow")
+      // if(slakelimeStatus == '1'){
+      //   alert("Enter SlakeLime to Canister!!!");
+      // }else{
+        
+      // }
+      axios.get("http://192.168.1.181/startPHTreatLow")
         .then((response) => console.log(response.data))
         .catch((error) => console.log(error));
-      }
     };
 
     const highRangePhHandle = () => {
