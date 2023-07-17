@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../style/home.css';
 import phLogo from '../assets/PH.png';
+import dropLogo from '../assets/drop.png';
 import nh3Logo from '../assets/nh3.png';
 import reportLogo from '../assets/report.png';
 import { Link } from 'react-router-dom';
@@ -52,7 +53,7 @@ const Home = () => {
     <div class="body">
       <Link to="/ph"><div className="bodyElement"><img src={phLogo} width="120px" alt='phLogo'/><div className="bodyElementName">PH Treatment</div></div></Link>
       <Link to="/nh3"><div className="bodyElement"><img src={nh3Logo} width="120px" alt='nh3Logo'/><div className="bodyElementName">NH3 Treatment</div></div></Link>
-      <Link to="/waterSystem"><div className="bodyElement"><img src={nh3Logo} width="120px" alt='nh3Logo'/><div className="bodyElementName">Water System</div></div></Link>
+      <Link to="/waterSystem"><div className="bodyElement"><img src={dropLogo} width="120px" alt='nh3Logo'/><div className="bodyElementName">Water System</div></div></Link>
       <Link to="/report"><div className="bodyElement"><img src={reportLogo} width="120px" alt='reportLogo'/><div className="bodyElementName">Reports</div></div></Link>
     </div>
   </>)
