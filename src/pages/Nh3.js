@@ -5,10 +5,10 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 const Nh3 = () => {
-  const [currentDay, setCurrentDay] = useState('');
-  const [currentTime, setCurrentTime] = useState('');
-  const [currentDate, setCurrentDate] = useState('');
-  const [biochipStatus, setBiochipValue] = useState();
+  const [currentDay, setCurrentDay] = useState(''); // 1
+  const [currentTime, setCurrentTime] = useState(''); //2
+  const [currentDate, setCurrentDate] = useState(''); //3
+  const [biochipStatus, setBiochipValue] = useState(); //4
   const [showCheckContent, setShowCheckContent] = useState(false);
   const [showLowSolContent, setShowLowSolContent] = useState(false);
 
@@ -52,7 +52,7 @@ const Nh3 = () => {
   const handleNh3Treatment = () => {
     
     console.log(biochipStatus);
-    if(biochipStatus === '0'){
+    if(biochipStatus == '0'){
       alert("Enter Biochip to Canister!!!");
     }else{
       axios.get("http://192.168.1.181/startNH3Treat")

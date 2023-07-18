@@ -5,13 +5,13 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 const Ph = () => {
-  const [currentDay, setCurrentDay] = useState('');
-  const [currentTime, setCurrentTime] = useState('');
-  const [currentDate, setCurrentDate] = useState('');
-  const [phValue, setphValue] = useState(0);
-  const [sugarStatus, setSugarValue] = useState();
-  const [slakelimeStatus, setSlakelimeValue] = useState();
-  const [showTreatmentContent, setShowTreatmentContent] = useState(false);
+  const [currentDay, setCurrentDay] = useState(''); //1
+  const [currentTime, setCurrentTime] = useState(''); //2
+  const [currentDate, setCurrentDate] = useState(''); //3
+  const [phValue, setphValue] = useState(0); //4
+  const [sugarStatus, setSugarValue] = useState(); //5
+  const [slakelimeStatus, setSlakelimeValue] = useState(); //6
+  const [showTreatmentContent, setShowTreatmentContent] = useState(false); //7
 
   useEffect(() => {
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -43,11 +43,11 @@ const Ph = () => {
       .then((response) => setphValue(response.data))
       .catch((error) => console.log(error));
     setShowTreatmentContent(true);
-    // if(phValue>8.5){
-    //   requestHandleSugarStatus();
-    // }else if(phValue<7.5){
-    //   requestHandleSlakelimeStatus();
-    // }
+    if(phValue>8.5){
+      requestHandleSugarStatus();
+    }else if(phValue<7.5){
+      requestHandleSlakelimeStatus();
+    }
 
 
   };
@@ -65,18 +65,17 @@ const Ph = () => {
     };
 
     const lowRangePhHandle = () => {
-      // if(slakelimeStatus == '1'){
-      //   alert("Enter SlakeLime to Canister!!!");
-      // }else{
-        
-      // }
-      axios.get("http://192.168.1.181/startPHTreatLow")
+      if(slakelimeStatus == '0'){
+        alert("Enter SlakeLime to Canister!!!");
+      }else{
+        axios.get("http://192.168.1.181/startPHTreatLow")
         .then((response) => console.log(response.data))
         .catch((error) => console.log(error));
+      }
     };
 
     const highRangePhHandle = () => {
-      if(sugarStatus == '1'){
+      if(sugarStatus == '0'){
         alert("Enter Sugar to Canister!!!");
       }else{
         axios.get("http://192.168.1.181/startPHTreatHigh")
